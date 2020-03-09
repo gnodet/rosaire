@@ -1,0 +1,141 @@
+<html>
+	<body>
+		<!-- <script src="jquery.js"></script> -->
+		<!-- <script src="scripts/hammer.min.js"></script> -->
+		<script src="scripts/jquery-3.4.1.min.js"></script>
+  		<script src="scripts/jquery.touchSwipe.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				cday = new Date().getDay();
+				switch (cday) {
+					case 0: cmys = "#glorieux"; break;
+					case 1: cmys = "#joyeux"; break;
+					case 2: cmys = "#douloureux"; break;
+					case 3: cmys = "#glorieux"; break;
+					case 4: cmys = "#lumineux"; break;
+					case 5: cmys = "#douloureux"; break;
+					case 6: cmys = "#joyeux"; break;
+				}
+				$("#dujour > div").html( $(cmys+" > div").html() )
+				$("#dujour > h3").html( $(cmys+" > h3").html() )
+			});
+		</script>
+		<style>
+			h2 {
+				width: 100%;
+				text-align: center;
+				background: cyan;
+			}
+			h3 {
+				width: 100%;
+				text-align: center;
+			}
+			.line {
+				width: 100%;
+			}
+			.line h2 {
+				margin: 0;
+			}
+			.overview {
+				width: 100%;
+				height: 10em;
+				display: inline-block;
+				position: relative;
+			}
+			.overview div {
+				top: 5%;
+				width: 20%;
+				height: 70%;
+				overflow: hidden;
+				position: absolute;
+				border-radius: 15px;
+			}
+			.overview div:nth-of-type(1) {
+				top: 25%;
+				left: 10%;
+			}
+			.overview div:nth-of-type(2) {
+				left: 25%;
+			}
+			.overview div:nth-of-type(3) {
+				top: 25%;
+				left: 40%;
+			}
+			.overview div:nth-of-type(4) {
+				left: 55%;
+			}
+			.overview div:nth-of-type(5) {
+				top: 25%;
+				left: 70%;
+			}
+			.overview div img {
+				width: 100%;
+				border-radius: 15px;
+			}
+			.overview hr {
+				width: 100%;
+			}
+		</style>
+		<table width="100%">
+			<tr>
+				<td id="dujour" class="line">
+					<h2>Mystères du jour</h2>
+					<div class="overview"></div>
+					<h3></h3>
+				</td>
+			</tr>
+			<tr>
+				<td id="joyeux" class="line">
+					<h2>1. Lundi et samedi</h2>
+					<div class="overview">
+						<div><img src="images/l_anno14.jpg"/></div>
+						<div><img src="images/la_vis10.jpg"/></div>
+						<div><img src="images/la_nai10.jpg"/></div>
+						<div><img src="images/la_pry10.jpg"/></div>
+						<div><img src="images/le_rec10.jpg"/></div>
+					</div>
+					<h3>Mystères joyeux</h3>
+				</td>
+			</tr>
+			<tr>
+				<td id="douloureux" class="line">
+					<h2>2. Mardi et vendredi</h2>
+					<div class="overview">
+						<div><img src="images/l_agon10.jpg"/></div>
+						<div><img src="images/la_fla10.jpg"/></div>
+						<div><img src="images/le_cou10.jpg"/></div>
+						<div><img src="images/le_por10.jpg"/></div>
+						<div><img src="images/le_cru10.jpg"/></div>
+					</div>
+					<h3>Mystères douloureux</h3>
+				</td>
+			</tr>
+			<tr>
+				<td id="glorieux" class="line">
+					<h2>3. Mercredi et dimanche</h2>
+					<div class="overview">
+						<div><img src="images/la_rys10.jpg"/></div>
+						<div><img src="images/l_asce10.jpg"/></div>
+						<div><img src="images/l_asso10.jpg"/></div>
+						<div><img src="images/la_pry10.jpg"/></div>
+						<div><img src="images/le_cou11.jpg"/></div>
+					</div>
+					<h3>Mystères glorieux</h3>
+				</td>
+			</tr>
+			<tr>
+				<td id="lumineux" class="line">
+					<h2>4. Jeudi</h2>
+					<div class="overview">
+						<div><img style="margin-top: -20%;" src="images/le_bap10.jpg"/></div>
+						<div><img src="images/les_no10.jpg"/></div>
+						<div><img src="images/l_anno15.jpg"/></div>
+						<div><img src="images/la_tra13.jpg"/></div>
+						<div><img style="height: auto; width: 200%; margin-top: -27%; margin-left: -58%;" src="images/l_inst12.jpg"/></div>
+					</div>
+					<h3>Mystères lumineux</h3>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
