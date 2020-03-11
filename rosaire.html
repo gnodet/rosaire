@@ -15,7 +15,8 @@
 				width: auto;
 				text-align: center;
 				font-size: 4em;
-				margin: 0.25em;
+				margin: 0;
+				padding: 0.25em;
 			}
 			h4 {
 				width: auto;
@@ -26,7 +27,21 @@
 			.tdm-line {
 				width: 100%;
 			}
-			.tdm-line h2 {
+			.tdm-line > .header {
+				width: auto;
+				text-align: center;
+				background: cyan;
+				font-weight: bold;
+				font-size: 4em;
+				padding: 0.25em;
+				margin: 0;
+			}
+			.tdm-line > .subheader {
+				width: auto;
+				text-align: center;
+				font-size: 4em;
+				font-weight: bold;
+				padding: 0.25em;
 				margin: 0;
 			}
 			.overview {
@@ -68,7 +83,21 @@
 			.overview hr {
 				width: 100%;
 			}
-			.mystere-list h2 {
+			.mystere-list > .header {
+				width: auto;
+				text-align: center;
+				background: cyan;
+				font-weight: bold;
+				font-size: 4em;
+				padding: 0.25em;
+				margin: 0;
+			}
+			.mystere-list > .subheader {
+				width: auto;
+				text-align: center;
+				font-size: 4em;
+				font-weight: bold;
+				padding: 0.25em;
 				margin: 0;
 			}
 			.scrollbar {
@@ -90,42 +119,63 @@
 				border-bottom: 4px;
 				border-bottom: solid cyan;
 			}
+			.mystere > .header {
+				text-align: center;
+				font-size: 2em;
+				font-weight: bold;
+			}
+			.mystere > .subheader {
+				text-align: center;
+				font-size: 2em;
+				font-weight: bold;
+			}
+			.mystere > .image > img  {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 80%;
+				border-radius: 30px;
+			}
 		</style>
 		<script src="scripts/jquery-3.4.1.min.js"></script>
   		<script src="scripts/jquery.touchSwipe.min.js"></script>
 		<script>
 	var mysteres = {
 		"joyeux": [
-			{ name: "l’annonciation",                     fruit: "l’humilité",                           img: "mystery-rosary1.jpg" },
-			{ name: "la visitation",                      fruit: "la charité envers le prochain",        img: "mystery-rosary2.jpg" },
-			{ name: "la nativité",                        fruit: "l’esprit de pauvreté",                 img: "mystery-rosary3.jpg" },
-			{ name: "la présentation de Jésus au temple", fruit: "la pureté et l’obéissance",            img: "mystery-rosary4.jpg" },
-			{ name: "le recouvrement de Jésus au temple", fruit: "la recherche de Dieu en toutes chose", img: "mystery-rosary5.jpg" },
-		],
-		"lumineux": [
-			{ name: "la baptême au Jourdain",         fruit: "la grâce du baptême pour tous",           img: "mystery-rosary16.jpg" },
-			{ name: "les noces de Cana",              fruit: "la confiance et l’intercession de Marie", img: "mystery-rosary17.jpg" },
-			{ name: "l’annonce du royaume",           fruit: "la conversion",                           img: "mystery-rosary18.jpg" },
-			{ name: "la transfiguration",             fruit: "la paix de l’âme",                        img: "mystery-rosary19.jpg" },
-			{ name: "l’institution de l’Eucharistie",
-			                            fruit: "l’union parfaite avec Jésus, l’amour de l’Eucharistie", img: "mystery-rosary20.jpg" },
+			{ name: "l’annonciation",           fruit: "l’humilité",                           		img: "mystery-rosary1.jpg" },
+			{ name: "la visitation",            fruit: "la charité envers le prochain",        		img: "mystery-rosary2.jpg" },
+			{ name: "la nativité",              fruit: "l’esprit de pauvreté",                 		img: "mystery-rosary3.jpg" },
+			{ name: "la présentation de " +
+							"Jésus au temple",	fruit: "la pureté et l’obéissance",            		img: "mystery-rosary4.jpg" },
+			{ name: "le recouvrement de " +
+							"Jésus au temple", 	fruit: "la recherche de Dieu en toutes chose", 		img: "mystery-rosary5.jpg" },
 		],
 		"douloureux": [
-			{ name: "l’agonie de Jésus",        fruit: "la contrition de nos péchés",             img: "mystery-rosary6.jpg" },
-			{ name: "la flagellation",          fruit: "la mortification de nos sens",            img: "mystery-rosary7.jpg" },
-			{ name: "le couronnement d’épines", fruit: "la mortification de l’esprit et du cœur", img: "mystery-rosary8.jpg" },
-			{ name: "le portement de la croix", fruit: "la patience dans les épreuves",           img: "mystery-rosary9.jpg" },
-			{ name: "le crucifiement",          fruit: "l’amour des âmes et de l’Église",         img: "mystery-rosary10.jpg" }
+			{ name: "l’agonie de Jésus",        fruit: "la contrition de nos péchés",             	img: "mystery-rosary6.jpg" },
+			{ name: "la flagellation",          fruit: "la mortification de nos sens",            	img: "mystery-rosary7.jpg" },
+			{ name: "le couronnement d’épines", fruit: "la mortification de l’esprit et du cœur", 	img: "mystery-rosary8.jpg" },
+			{ name: "le portement de la croix", fruit: "la patience dans les épreuves",           	img: "mystery-rosary9.jpg" },
+			{ name: "le crucifiement",          fruit: "l’amour des âmes et de l’Église",         	img: "mystery-rosary10.jpg" }
 		],
 		"glorieux": [
-			{ name: "la résurrection",        	fruit: "la Foi",             					img: "mystery-rosary11.jpg" },
-			{ name: "l’ascension",          	fruit: "l’espérance du Ciel",            		img: "mystery-rosary12.jpg" },
-			{ name: "la Pentecôte", 			fruit: "l’effusion de l’Esprit Saint", 			img: "mystery-rosary13.jpg" },
-			{ name: "l’assomption", 			fruit: "la grâce d’aller au ciel",              img: "mystery-rosary14.jpg" },
-			{ name: "le couronnement de Marie", fruit: "une plus grande dévotion envers Marie", img: "mystery-rosary15.jpg" }
+			{ name: "la résurrection",        	fruit: "la Foi",             						img: "mystery-rosary11.jpg" },
+			{ name: "l’ascension",          	fruit: "l’espérance du Ciel",            			img: "mystery-rosary12.jpg" },
+			{ name: "la Pentecôte", 			fruit: "l’effusion de l’Esprit Saint", 				img: "mystery-rosary13.jpg" },
+			{ name: "l’assomption", 			fruit: "la grâce d’aller au ciel",              	img: "mystery-rosary14.jpg" },
+			{ name: "le couronnement de Marie", fruit: "une plus grande dévotion envers Marie", 	img: "mystery-rosary15.jpg" }
+		],
+		"lumineux": [
+			{ name: "la baptême au Jourdain",   fruit: "la grâce du baptême pour tous",           	img: "mystery-rosary16.jpg" },
+			{ name: "les noces de Cana",        fruit: "la confiance et l’intercession de Marie", 	img: "mystery-rosary17.jpg" },
+			{ name: "l’annonce du royaume",     fruit: "la conversion",                           	img: "mystery-rosary18.jpg" },
+			{ name: "la transfiguration",       fruit: "la paix de l’âme",                        	img: "mystery-rosary19.jpg" },
+			{ name: "l’institution de " +
+						"l’Eucharistie",		fruit: "l’union parfaite avec Jésus, " +
+															"l’amour de l’Eucharistie", 			img: "mystery-rosary20.jpg" },
 		]
 	};
 	var cmyss = [ "glorieux", "joyeux", "douloureux", "glorieux", "lumineux", "douloureux", "joyeux" ];
+	var ordinaux = [ "Premier", "Deuxième", "Troisième", "Quatrième", "Cinquième" ];
 	var cmys = cmyss[ new Date().getDay() ];
 
 			$(document).ready(function(){
@@ -140,32 +190,61 @@
 					case 6: cmys = "joyeux"; break;
 				}
 				for (var mys in mysteres) {
-					$("#tdm-" + mys + " > div").html(
+					$("#tdm-" + mys + " > .overview").html(
 						"<div><img src='images/" + mysteres[mys][0].img + "'/></div>" +
 						"<div><img src='images/" + mysteres[mys][1].img + "'/></div>" +
 						"<div><img src='images/" + mysteres[mys][2].img + "'/></div>" +
 						"<div><img src='images/" + mysteres[mys][3].img + "'/></div>" +
 						"<div><img src='images/" + mysteres[mys][4].img + "'/></div>"
 					);
+
+					$("#mysteres-" + mys + " > .header").html("Mystères " + mys + "");
+
+					var list = "<div class='header'>Mystères " + mys + "</div>";
+					list +=    `<div class="scrollbar">
+									<div class="scrollbar-selected">Premier mystère</div>
+									<div>Deuxième mystère</div>
+									<div>Troisième mystère</div>
+									<div>Quatrième mystère</div>
+									<div>Cinquième mystère</div>
+								</div>`;
+					for (var nm in [ 0, 1, 2, 3, 4 ]) {
+						list += "<div id='mysteres-" + mys + "-" + nm + "' class='mystere'>";
+						list += "<div class='header'>" + ordinaux[nm] + " mystère " + mys + " &mdash; " + mysteres[mys][nm].name + "</div>";
+						list += "<div class='subheader'>Fruit du mystère : " + mysteres[mys][nm].fruit + "</div>";
+						list += "<div class='image'><img src='images/" + mysteres[mys][nm].img + "'></img></div>";
+						list += "</div>"
+					}
+					$("#mysteres-" + mys).html(list);
+					$("#mysteres-" + mys).hide();
+
+					$("#tdm-" + mys).swipe({
+						swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+							if (direction == "left") {
+								$("#tdm").hide();
+								$("#mysteres-" + mys).show();
+								$("#mysteres-" + mys + "-0").show();
+								$("#mysteres-" + mys + "-1").hide();
+								$("#mysteres-" + mys + "-2").hide();
+								$("#mysteres-" + mys + "-3").hide();
+								$("#mysteres-" + mys + "-4").hide();
+							}
+	        			}
+					});
 				}
 
-				$("#tdm-dujour > div").html( $("#tdm-" + cmys + " > div").html() )
-				$("#tdm-dujour > h3").html( $("#tdm-" + cmys + " > h3").html() )
-				$("#liste-douloureux").hide();
+				$("#tdm-dujour > .overview").html( $("#tdm-" + cmys + " > .overview").html() )
+				$("#tdm-dujour > .subheader").html( $("#tdm-" + cmys + " > .subheader").html() )
 				$("#tdm-dujour").swipe({
 					swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
-						console.log("You swiped " + direction + " with " + fingerCount + " fingers");
 						if (direction == "left") {
 							$("#tdm").hide();
-							$("#liste-" + cmys).show();
-						}
-        			}
-				});
-				$("#liste-douloureux").swipe({
-					swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
-						if (direction == "right") {
-							$(this).hide();
-							$("#tdm").show();
+							$("#mysteres-" + cmys).show();
+							$("#mysteres-" + cmys + "-0").show();
+							$("#mysteres-" + cmys + "-1").hide();
+							$("#mysteres-" + cmys + "-2").hide();
+							$("#mysteres-" + cmys + "-3").hide();
+							$("#mysteres-" + cmys + "-4").hide();
 						}
         			}
 				});
@@ -174,58 +253,35 @@
 	</head>
 	<body>
 		<div id="tdm">
-			<table width="100%">
-				<tr>
-					<td id="tdm-dujour" class="tdm-line">
-						<h2>Mystères du jour</h2>
-						<div class="overview"></div>
-						<h3></h3>
-					</td>
-				</tr>
-				<tr>
-					<td id="tdm-joyeux" class="tdm-line">
-						<h2>1. Lundi et samedi</h2>
-						<div class="overview"></div>
-						<h3>Mystères joyeux</h3>
-					</td>
-				</tr>
-				<tr>
-					<td id="tdm-douloureux" class="tdm-line">
-						<h2>2. Mardi et vendredi</h2>
-						<div class="overview"></div>
-						<h3>Mystères douloureux</h3>
-					</td>
-				</tr>
-				<tr>
-					<td id="tdm-glorieux" class="tdm-line">
-						<h2>3. Mercredi et dimanche</h2>
-						<div class="overview"></div>
-						<h3>Mystères glorieux</h3>
-					</td>
-				</tr>
-				<tr>
-					<td id="tdm-lumineux" class="tdm-line">
-						<h2>4. Jeudi</h2>
-						<div class="overview"></div>
-						<h3>Mystères lumineux</h3>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div id="liste-douloureux" class="mystere-list">
-			<h2>Les mystères douloureux</h2>
-			<div class="scrollbar">
-				<div class="scrollbar-selected">Premier mystère</div>
-				<div>Deuxième mystère</div>
-				<div>Troisième mystère</div>
-				<div>Quatrième mystère</div>
-				<div>Cinquième mystère</div>
+			<div id="tdm-dujour" class="tdm-line">
+				<div class="header">Mystères du jour</div>
+				<div class="overview"></div>
+				<div class="subheader"></div>
 			</div>
-			<div class="mystere">
-				<h3>Premier mystère douloureux &mdash; l’agonie de Jésus</h3>
-				<h4>Fruit du mystère : la contrition de nos péchés</h3>
-				<div><img src="images/l_agon10.jpg"/></div>
+			<div id="tdm-joyeux" class="tdm-line">
+				<div class="header">1. Lundi et samedi</div>
+				<div class="overview"></div>
+				<div class="subheader">Mystères joyeux</div>
+			</div>
+			<div id="tdm-douloureux" class="tdm-line">
+				<div class="header">2. Mardi et vendredi</div>
+				<div class="overview"></div>
+				<div class="subheader">Mystères douloureux</div>
+			</div>
+			<div id="tdm-glorieux" class="tdm-line">
+				<div class="header">3. Mercredi et dimanche</div>
+				<div class="overview"></div>
+				<div class="subheader">Mystères glorieux</div>
+			</div>
+			<div id="tdm-lumineux" class="tdm-line">
+				<div class="header">4. Jeudi</div>
+				<div class="overview"></div>
+				<div class="subheader">Mystères lumineux</div>
 			</div>
 		</div>
+		<div id="mysteres-joyeux" class="mystere-list"></div>
+		<div id="mysteres-douloureux" class="mystere-list"></div>
+		<div id="mysteres-glorieux" class="mystere-list"></div>
+		<div id="mysteres-lumineux" class="mystere-list"></div>
 	</body>
 </html>
