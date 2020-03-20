@@ -218,16 +218,27 @@
 					$("#mysteres-" + mys).html(list);
 					$("#mysteres-" + mys).hide();
 
-					$("#tdm-" + mys).swipe({
+					let tmys = mys;
+					console.log("Initializing " + tmys);
+					$("#tdm-" + tmys).swipe({
 						swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+							console.log("Swipe " + direction + ": " + tmys);
 							if (direction == "left") {
 								$("#tdm").hide();
-								$("#mysteres-" + mys).show();
-								$("#mysteres-" + mys + "-0").show();
-								$("#mysteres-" + mys + "-1").hide();
-								$("#mysteres-" + mys + "-2").hide();
-								$("#mysteres-" + mys + "-3").hide();
-								$("#mysteres-" + mys + "-4").hide();
+								$("#mysteres-" + tmys).show();
+								$("#mysteres-" + tmys + "-0").show();
+								$("#mysteres-" + tmys + "-1").hide();
+								$("#mysteres-" + tmys + "-2").hide();
+								$("#mysteres-" + tmys + "-3").hide();
+								$("#mysteres-" + tmys + "-4").hide();
+							} else if (direction == "right") {
+								$("#tdm").show();
+								$("#mysteres-" + tmys).hide();
+								$("#mysteres-" + tmys + "-0").show();
+								$("#mysteres-" + tmys + "-1").hide();
+								$("#mysteres-" + tmys + "-2").hide();
+								$("#mysteres-" + tmys + "-3").hide();
+								$("#mysteres-" + tmys + "-4").hide();
 							}
 	        			},
 	        			allowPageScroll: "vertical"
