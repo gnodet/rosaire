@@ -113,23 +113,21 @@
 				font-size: 1.5em;
 				text-transform: uppercase;
 				border: 0 10px;
-				margin-left: 2rem;
+				margin-left: 2em;
 			}
 			.scrollbar div.scrollbar-selected {
-				border-bottom: 4px;
-				border-bottom: solid cyan;
+				border-bottom: 4px solid cyan;
 			}
 			.mystere > .header {
 				text-align: center;
 				font-size: 4em;
 				font-weight: bold;
-				margin: 10%;
+				margin: 2em;
 			}
 			.mystere > .subheader {
 				text-align: center;
 				font-size: 3em;
-				font-weight: bold;
-				margin: 10%;
+				margin: 2em;
 			}
 			.mystere > .image > img  {
 				display: block;
@@ -190,11 +188,11 @@
 
 					let list = "<div class='header'>Mystères " + mys + "</div>";
 					list +=    `<div class="scrollbar">
-									<div class="scrollbar-selected">Premier mystère</div>
-									<div>Deuxième mystère</div>
-									<div>Troisième mystère</div>
-									<div>Quatrième mystère</div>
-									<div>Cinquième mystère</div>
+									<div id="scrollbar-` + mys + `-0" class="scrollbar-selected">Premier mystère</div>
+									<div id="scrollbar-` + mys + `-1" >Deuxième mystère</div>
+									<div id="scrollbar-` + mys + `-2">Troisième mystère</div>
+									<div id="scrollbar-` + mys + `-3">Quatrième mystère</div>
+									<div id="scrollbar-` + mys + `-4">Cinquième mystère</div>
 								</div>`;
 					for (let nm in [ 0, 1, 2, 3, 4 ]) {
 						list += "<div id='mysteres-" + mys + "-" + nm + "' class='mystere'>";
@@ -210,9 +208,13 @@
 							if (direction == "left") {
 								$("#mysteres-" + mys + "-" + nm).hide();
 								$("#mysteres-" + mys + "-" + ((nm + 1) % 5)).show();
+								$("#scrollbar-" + mys + "-" + nm).removeClass("scrollbar-selected");
+								$("#scrollbar-" + mys + "-" + ((nm + 1) % 5)).addClass("scrollbar-selected");
 							} else if (direction == "right") {
 								$("#mysteres-" + mys + "-" + nm).hide();
 								$("#mysteres-" + mys + "-" + ((nm + 4) % 5)).show();
+								$("#scrollbar-" + mys + "-" + nm).removeClass("scrollbar-selected");
+								$("#scrollbar-" + mys + "-" + ((nm + 4) % 5)).addClass("scrollbar-selected");
 							}
 						}
 						$("#mysteres-" + mys + "-" + nm).swipe({
